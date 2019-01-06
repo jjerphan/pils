@@ -1,0 +1,7 @@
+bin/
+__pycache__/
+results_*
+.back*
+chromedriver
+geckodriver*
+.credentials
