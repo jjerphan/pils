@@ -1,8 +1,11 @@
+# Custom
+.venv
 .vscode
 .idea
 .cache
 __pycache__
 *gecko*
+*/.credentials
 
 # Prerequisites
 *.d

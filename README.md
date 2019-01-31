@@ -3,12 +3,13 @@
 **Automatic Calibration of Local Search Algorithms Hyper-parameters (featuring Bayesian Hyper-Optimization)**
 
 ```python
-from pils.optimizers import KatisOptunityOptimizer
+from pils.optimizers import KattisOptunityOptimizer
 
 if __name__ == "__main__":
 
     # Optimizing using an online judge
-    optimizer = KatisOptunityOptimizer(algo_path="tsp.cpp",
+    optimizer = KattisOptunityOptimizer(algo_path="tsp.cpp",
+                                       id_problem="tsp",
                                        credential_file=".credentials")
 
     # Hyperparameters of the algorithm

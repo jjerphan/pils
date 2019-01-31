@@ -121,9 +121,9 @@ class Optimizer(ABC):
         return best_hyperparamters
 
 
-class KatisOptimizerTrait(Optimizer):
+class KattisOptimizerTrait(Optimizer):
     """
-    An abstract class to evaluate problem on Katis directly.
+    An abstract class to evaluate problem on Kattis directly.
 
     Can authenticate with email or with Google Auth.
 
@@ -159,17 +159,17 @@ class KatisOptimizerTrait(Optimizer):
             code = code.replace(str(k), str(v))
 
         # Saving new code in a temp file
-        temp_file = os.path.join(TEMP_FOLDER, self._generate_id() + self._algo_name)
+        temp_file = os.path.join(TEMP_FOLDER, self._generate_id() + self._algo_basename)
         with open(temp_file, "w") as f:
             f.write(code)
 
-        # Submitting this code online with Katis
+        # Submitting this code online with Kattis
         final_score = self._submit_code(temp_file)
         return final_score
 
     def _submit_code(self, algo: str):
         """
-        Submit code on Katis and return final_score
+        Submit code on Kattis and return final_score
 
         :param algo: the .cpp file to use
         :return:
@@ -232,7 +232,7 @@ class KatisOptimizerTrait(Optimizer):
 # Concrete classes bellow
 
 
-class KatisOptunityOptimizer(KatisOptimizerTrait):
+class KattisOptunityOptimizer(KattisOptimizerTrait):
     """
     An online hyper-parameters optimizer using the `optunity` library.
 
@@ -244,16 +244,17 @@ class KatisOptunityOptimizer(KatisOptimizerTrait):
 
     def _get_best_hyperparameters(self, objective_function, method, number_evaluations):
         if method is None:
-            method = "particle swarm"
+            method = "tpe"
 
         best_hyperparameters, extra_info, solver_info = optunity.minimize(objective_function,
                                                                           solver_name=method,
                                                                           num_evals=number_evaluations,
+                                                                          pmap=map,
                                                                           **self._hyperparameters)
         return best_hyperparameters
 
 
-class KatisHyperOptOptimizer(KatisOptimizerTrait):
+class KattisHyperOptOptimizer(KattisOptimizerTrait):
     """
     An online hyper-parameters optimizer using the `hyperopt` library.
 

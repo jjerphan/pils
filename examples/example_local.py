@@ -1,9 +1,7 @@
-from pils.optimizers import KattisOptunityOptimizer
+from pils.problems.tsp.optimizers import LocalOptunityTSPOptimizer, LocalHyperOptTSPOptimizer
 
 if __name__ == "__main__":
-    optimizer = KattisOptunityOptimizer(algo_path="tsp.cpp",
-                                        id_problem="tsp",
-                                        credential_file=".credentials")
+    optimizer = LocalOptunityTSPOptimizer(algo_path="tsp.cpp")
 
     optimizer.register_hyperparameter(T_0=[10000, 60000])
     optimizer.register_hyperparameter(ALPHA=[0.00000001, 0.00001])

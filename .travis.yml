@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.6"
+install:
+  - sudo apt-get update
+  - python --version
+  - python -m venv .venv
+  - source .venv/bin/activate
+  - pip install -r requirements.txt
+
+script:
+  - py.test test/
