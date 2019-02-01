@@ -1,4 +1,4 @@
-from pils.problems.tsp.optimizers import LocalOptunityTSPOptimizer, LocalHyperOptTSPOptimizer
+from pils.problems.tsp.optimizers import LocalOptunityTSPOptimizer
 
 if __name__ == "__main__":
     optimizer = LocalOptunityTSPOptimizer(algo_path="tsp.cpp")

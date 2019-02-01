@@ -6,6 +6,9 @@
 __pycache__
 *gecko*
 */.credentials
+build/
+dist/
+*egg-info
 
 # Prerequisites
 *.d
