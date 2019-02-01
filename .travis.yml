@@ -3,6 +3,8 @@ python:
   - "3.6"
 install:
   - sudo apt-get update
+  - sudo apt install g++ -y
+  - g++ -v
   - python --version
   - pip install --upgrade pip
   - pip install -r requirements.txt
