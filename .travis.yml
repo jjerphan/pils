@@ -1,12 +1,24 @@
-language: python
+dist: trusty
+sudo: required
+language:
+  - python
 python:
   - "3.6"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-7
+      - g++-7
 install:
-  - sudo apt-get update
+  # Installing Python dependencies
   - python --version
-  - python -m venv .venv
-  - source .venv/bin/activate
+  - pip install --upgrade pip
   - pip install -r requirements.txt
 
 script:
-  - py.test test/
+  - export CC=gcc-7
+  - export CXX=g++-7
+  - cd test/
+  - py.test *

@@ -1,7 +1,7 @@
-from pils.problems.tsp.optimizers import LocalOptunityTSPOptimizer
+from pils.problems.tsp.optimizers import LocalHyperOptTSPOptimizer
 
 if __name__ == "__main__":
-    optimizer = LocalOptunityTSPOptimizer(algo_path="tsp.cpp")
+    optimizer = LocalHyperOptTSPOptimizer(algo_path="tsp.cpp")
 
     optimizer.register_hyperparameter(T_0=[10000, 60000])
     optimizer.register_hyperparameter(ALPHA=[0.00000001, 0.00001])
